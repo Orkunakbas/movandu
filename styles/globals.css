@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
+header {max-width: 100% !important;}
+nav {max-width: 100% !important;}
+
+h1 {
+  font-size: 50px;
+}
