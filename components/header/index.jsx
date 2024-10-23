@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Navbar,
@@ -12,9 +13,36 @@ import {
 } from "@nextui-org/react";
 import Image from "next/image";
 import logo from "./logo.png"; // Logoyu import ettik
+import { useState, useEffect } from "react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [marginTopClass, setMarginTopClass] = useState("mt-40");
+  const [logoWidth, setLogoWidth] = useState(250); // Başlangıç genişliği 250
+
+  // Scroll eventini takip eden useEffect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+
+      // Scroll Y konumuna göre className ve genişlik değiştir
+      if (window.scrollY > 50) {
+        setMarginTopClass("mt-5");
+        setLogoWidth(160); // Scroll sonrası genişliği küçült
+      } else {
+        setMarginTopClass("mt-40");
+        setLogoWidth(250); // Başlangıçta genişliği geri getir
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup işlemi, component unmount olursa event listener kaldırılır
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const menuItems = [
     "Profile",
@@ -63,18 +91,16 @@ export default function Header() {
         <Image
           src={logo} // Import ettiğimiz logoyu src olarak kullanıyoruz
           alt="Logo"
-          width={200} // İstediğin genişlik
+          width={logoWidth}// İstediğin genişlik
           height={150}
-          className="mt-40"
+          className={`${marginTopClass} transition-all duration-500 ease-in-out will-change-transform`} 
         />
       </NavbarBrand>
 
       {/* Sağdaki butonlar */}
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Button className="header-button" disableRipple="true"  href="#" color="primary" variant="shadow">
-            Prices
-          </Button>
+       
         </NavbarItem>
       </NavbarContent>
 

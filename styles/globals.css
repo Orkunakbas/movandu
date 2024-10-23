@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: 'Outfit', sans-serif;
+}
 
 header {max-width: 100% !important;}
 nav {max-width: 100% !important;}
@@ -23,5 +26,21 @@ h1 {
 .header-button {
   width: 200px;
   background-color: #056a9a;
+}
 
+.hero-button {
+  padding: 35px 20px !important;
+  background-color: #056a9a;
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.hero-text {
+  font-weight: 500;
+  color: #a5a5a5;
+}
+
+.hero-title {
+  font-weight: 400;
+  color: #4a4a4a;
 }
