@@ -40,45 +40,21 @@ export default function Header() {
         {/* Sol menüler */}
         <div className="hidden sm:flex gap-4">
           <NavbarItem>
-            <Link color="foreground" href="#">
-              Features
+            <Link className="header-item" href="#">
+            Unsere Fahrzeuge
             </Link>
           </NavbarItem>
-          <NavbarItem isActive>
-            <Link href="#" aria-current="page">
-              Customers
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              Test
+          <NavbarItem >
+          <Link className="header-item" href="#">
+            Umzug berechnen
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="#">
-              Test
+          <Link className="header-item" href="#">
+            Geschäftsadresse
             </Link>
           </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              Test
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              Test
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              Test
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              Test
-            </Link>
-          </NavbarItem>
+    
         </div>
       </NavbarContent>
 
@@ -89,18 +65,15 @@ export default function Header() {
           alt="Logo"
           width={200} // İstediğin genişlik
           height={150}
-          className="mt-6"
+          className="mt-40"
         />
       </NavbarBrand>
 
       {/* Sağdaki butonlar */}
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
+          <Button className="header-button" disableRipple="true"  href="#" color="primary" variant="shadow">
+            Prices
           </Button>
         </NavbarItem>
       </NavbarContent>
